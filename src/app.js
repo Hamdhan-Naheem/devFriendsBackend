@@ -11,6 +11,7 @@ const profile = require('./routes/profile');
 const request = require('./routes/request');
 const user = require('./routes/users');
 const cors = require('cors')
+require('dotenv').config()
 
 
 const app = express();
@@ -32,7 +33,7 @@ app.use('/', user);
 connectDb()
   .then(() => {
     console.log('Db conntected');
-    app.listen(7777, () => {
+    app.listen(process.env.PORT, () => {
       console.log('Application is connected on port 7777');
     });
   })
